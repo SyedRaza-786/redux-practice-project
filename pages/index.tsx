@@ -5,8 +5,17 @@ import LogInPage from '../components/LogInPage';
 import ProductPage from '../components/ProductPage';
 import CartPage from '../components/CartPage';
 
+import { useEffect, useState } from 'react';
+
 const Home: NextPage = () => {
+
+ 
+
   return (
+
+    
+    
+
     <div>
     
       <LogInPage/>

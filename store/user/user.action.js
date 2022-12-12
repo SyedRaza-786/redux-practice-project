@@ -1,12 +1,36 @@
+import { login } from '../services/user/user.services';
 import { USER_ACTION_TYPES } from './user.types';
 
 export const createAction = (type, payload) => ({ type, payload });
 
-export const login = () => createAction(USER_ACTION_TYPES.LOG_IN);
+export const userscart = () => createAction(USER_ACTION_TYPES.USERS_CART);
 
-export const addcart = () => createAction(USER_ACTION_TYPES.ADD_CART);
+export const userLoginStart = () =>
+  createAction(USER_ACTION_TYPES.USER_LOGIN_START);
+export const userLoginSuccess = (payload) =>
+  createAction(USER_ACTION_TYPES.USER_LOGIN_SUCCESS, payload);
+export const userLoginFailed = (error) =>
+  createAction(USER_ACTION_TYPES.USER_LOGIN_FAILED, error);
 
-export const showcart = () => createAction(USER_ACTION_TYPES.SHOW_CART);
+export const userLoginStartAsync = (data) => {
+  return async (dispatch) => {
+    dispatch(userLoginStart());
+    try {
+      const res = await login(data);
+
+      dispatch(
+        userLoginSuccess({
+          data: res.data,
+          message: res.message,
+        })
+      );
+    } catch (error) {
+      dispatch(userLoginFailed(data.message));
+    }
+  };
+};
+
+// export const showcart = () => createAction(USER_ACTION_TYPES.SHOW_CART);
 
 //create a fake api call
 // const fakeApiCall = (number) => {

@@ -1,6 +1,14 @@
 import React from 'react';
+import { useEffect } from 'react';
+import axios from 'axios';
 
 const LogInPage = () => {
+  //   useEffect(() => {
+  //     axios
+  //       .get('https://fakestoreapi.com/users')
+  //       .then((res) => console.log('test ', res.data));
+  //   }, []);
+
   return (
     <div>
       <div className='flex justify-center my-20 gap-3'>
