@@ -1,19 +1,13 @@
 import React from 'react';
 import axios from 'axios';
+import { addtocart } from '../store/user/user.action';
 import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Image from 'next/image';
 
 const ProductPage = () => {
-  //   const fetchProducts = async () => {
-  //     const response = await axios
-  //       .get('https://fakestoreapi.com/products')
-  //       .catch((error) => {
-  //         console.log('error', error);
-  //       });
-  //     console.log(response.data);
-  //   };
-
   const [productData, setproductData] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     axios
@@ -32,12 +26,11 @@ const ProductPage = () => {
         Product List
       </div>
       {productData.map((post) => {
-        const { id, title, price, description, image } = post;
+        const { id, title, price, description } = post;
 
         const addCartHandler = () => {
           console.log('Product is', post.id, 'has title', post.title);
         };
-
         return (
           <div className='container mx-auto flex flex-col gap-10 justify-center'>
             <div key={post.id}>
@@ -47,7 +40,7 @@ const ProductPage = () => {
               <p>Price: {post.price}</p>
               <button
                 className='bg-blue-700 px-2 py-1'
-                onClick={addCartHandler}
+                onClick={() => dispatch(addtocart(productData))}
               >
                 Add to cart
               </button>

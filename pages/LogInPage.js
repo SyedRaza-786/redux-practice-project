@@ -7,6 +7,7 @@ import {
   userLoginSuccess,
   userLoginFailure,
 } from '../store/user/user.action';
+import ProductPage from './ProductPage';
 
 const LogInPage = () => {
   const [inputId, setinputId] = useState('');
@@ -14,9 +15,13 @@ const LogInPage = () => {
   // const dispatch = useDispatch();
   // const { user, error, message, loading } = useSelector(selectUserReducer);
   const check = () => {
-    console.log(inputId, inputPassword);
+    // console.log(inputId, inputPassword);
+    // if (userLoginSuccess) {
+    //   <ProductPage />;
+    // } else {
+    //   <LogInPage />;
+    // }
   };
-
   return (
     <div>
       <div className='flex justify-center my-60 gap-3 '>

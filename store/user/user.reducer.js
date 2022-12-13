@@ -6,6 +6,7 @@ const INITIAL_STATE = {
   error: false,
   message: false,
   loading: false,
+  cartList: [],
 };
 
 export const userReducer = (state = INITIAL_STATE, action) => {
@@ -13,9 +14,18 @@ export const userReducer = (state = INITIAL_STATE, action) => {
 
   switch (type) {
     case USER_ACTION_TYPES.Add_To_Cart:
+      const { id, title, price, description } = action.payload;
       return {
         ...state,
-        user: payload.date,
+        cartList: [
+          ...state.cartList,
+          {
+            id: id,
+            title: title,
+            price: price,
+            description: description,
+          },
+        ],
       };
     case USER_ACTION_TYPES.USER_LOGIN_START:
       return {
