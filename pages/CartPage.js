@@ -1,6 +1,8 @@
 import React from 'react';
 
 const CartPage = () => {
+  const cart = useSelector((state) => state.user);
+  const dispatch = useDispatch();
   return (
     <div className='my-10'>
       <div className='text-[30px] font-bold flex justify-center'>
