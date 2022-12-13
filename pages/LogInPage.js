@@ -1,25 +1,22 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import { useSelector, usedispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+// import selectUserReducer from '/store/user/user.selector';
 import {
   userLoginStart,
   userLoginSuccess,
   userLoginFailure,
 } from '../store/user/user.action';
-import axios from 'axios';
 
 const LogInPage = () => {
-  //   useEffect(() => {
-  //     axios
-  //       .get('https://fakestoreapi.com/users')
-  //       .then((res) => console.log('test ', res.data));
-  //   }, []);
   const [inputId, setinputId] = useState('');
   const [inputPassword, setinputPassword] = useState('');
-
-  const test = () => {
+  // const dispatch = useDispatch();
+  // const { user, error, message, loading } = useSelector(selectUserReducer);
+  const check = () => {
     console.log(inputId, inputPassword);
   };
+
   return (
     <div>
       <div className='flex justify-center my-60 gap-3 '>
@@ -42,7 +39,7 @@ const LogInPage = () => {
           ></input>
         </div>
         <div>
-          <button onClick={test} className='bg-red-700 h-10 w-60 '>
+          <button className='bg-red-700 h-10 w-60 ' onClick={check}>
             Log In My Account
           </button>
         </div>

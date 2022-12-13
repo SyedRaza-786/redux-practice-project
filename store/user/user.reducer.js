@@ -12,6 +12,11 @@ export const userReducer = (state = INITIAL_STATE, action) => {
   const { type, payload } = action;
 
   switch (type) {
+    case USER_ACTION_TYPES.Add_To_Cart:
+      return {
+        ...state,
+        user: payload.date,
+      };
     case USER_ACTION_TYPES.USER_LOGIN_START:
       return {
         ...state,

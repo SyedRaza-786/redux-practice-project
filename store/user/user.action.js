@@ -5,6 +5,9 @@ export const createAction = (type, payload) => ({ type, payload });
 
 export const userscart = () => createAction(USER_ACTION_TYPES.USERS_CART);
 
+export const addtocart = (payload) =>
+  createAction(USER_ACTION_TYPES.Add_To_Cart, payload);
+
 export const userLoginStart = () =>
   createAction(USER_ACTION_TYPES.USER_LOGIN_START);
 export const userLoginSuccess = (payload) =>

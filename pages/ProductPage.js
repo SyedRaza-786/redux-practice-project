@@ -33,6 +33,11 @@ const ProductPage = () => {
       </div>
       {productData.map((post) => {
         const { id, title, price, description, image } = post;
+
+        const addCartHandler = () => {
+          console.log('Product is', post.id, 'has title', post.title);
+        };
+
         return (
           <div className='container mx-auto flex flex-col gap-10 justify-center'>
             <div key={post.id}>
@@ -40,7 +45,12 @@ const ProductPage = () => {
               <p>Title: {post.title}</p>
               <p>Description: {post.description}</p>
               <p>Price: {post.price}</p>
-              <button className='bg-blue-700 px-2 py-1'>Add to cart</button>
+              <button
+                className='bg-blue-700 px-2 py-1'
+                onClick={addCartHandler}
+              >
+                Add to cart
+              </button>
             </div>
           </div>
         );

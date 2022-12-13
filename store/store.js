@@ -16,9 +16,7 @@ const persistConfig = {
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
-
 const composedEnhancers = composeWithDevTools(applyMiddleware(...middlewares));
-
 export const store = createStore(
   persistedReducer,
   undefined,
